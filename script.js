@@ -86,7 +86,8 @@ document.addEventListener("DOMContentLoaded",fetchBooks);
 
 // ------------------------ add book -------------------------------------------
 
-document.getElementById('addBook').addEventListener("click",function (){
+ document.getElementById('addBook').addEventListener("click",function (event){
+     event.preventDefault();
     const ISBN=document.getElementById('isbn').value;
     const title=document.getElementById('title').value;
     const author=document.getElementById('author').value;
@@ -116,7 +117,7 @@ document.getElementById('addBook').addEventListener("click",function (){
         .then(response => {
             if (response.ok) {
                 alert("book saved successfully!");
-
+                fetchBooks();
             } else {
                 alert("Error saving book: " + response.statusText);
             }
@@ -127,7 +128,8 @@ document.getElementById('addBook').addEventListener("click",function (){
         });
     console.log(ISBN,title,author,image,price);
     console.log(formData)
-})
+}
+)
 
 
 // -------------------------delete book --------------------------

@@ -13,10 +13,10 @@
     <aside class="sidebar">
         <h2>Book Management</h2>
         <ul>
-            <li><a href="#DashBoard">Dashboard</a></li>
-            <li><a href="#Books">Book</a></li>
-            <li><a href="#">Setting</a></li>
-            <li><a href="#logout">Logout</a></li>
+            <li><a href="#" onclick="navigateTo('home')">Dashboard</a></li>
+            <li><a href="#" onclick="navigateTo('Books')">Book</a></li>
+            <li><a href="#" onclick="navigateTo('')">Setting</a></li>
+            <li><a href="SignUP.html" >Logout</a></li>
         </ul>
     </aside>
 
@@ -27,7 +27,6 @@
             <h1>Book Management</h1>
             <button class="logout-btn">Logout</button>
         </header>
-
 
         <section id="Books" class="form-section">
             <h2>Add a New Book</h2>
@@ -52,22 +51,24 @@
                     <label for="image">Book Image</label>
                     <input type="file" id="image" name="image" accept="image/*" required>
                 </div>
-                <button type="submit" class="submit-btn" id="addBook">Add Book</button>
-                <button type="submit" class="submit-btn" id="updateBook">Update Book</button>
+                <button type="submit" class="submit-btn" id="addBook" >Add Book</button>
+                <button type="submit" class="submit-btn" id="updateBook" onclick="updateBook()">Update Book</button>
             </form>
+
+
+
         </section>
-
-
-        <section id="view-books" class="form-section-view">
+        <div id="view-books" class="form-section-view">
             <h2>View Books</h2>
             <div id="cards-container">
                 <!-- Cards will dynamically load here -->
             </div>
+        </div>
 
-        </section>
 
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
