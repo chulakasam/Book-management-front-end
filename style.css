@@ -14,7 +14,7 @@ body {
 
 .dashboard {
     display: flex;
-    height: 100vh;
+    height: 100%;
 }
 
 .sidebar {
@@ -89,7 +89,7 @@ body {
     margin-top: 65px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-height: 381px;
+    max-height: 650px;
     max-width: 494px;
 }
 

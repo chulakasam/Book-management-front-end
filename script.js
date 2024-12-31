@@ -43,11 +43,16 @@ function generateCards(data) {
         cardText.classList.add("card-text");
         cardText.textContent = `Author: ${book.author}\nPrice: $${book.price}`;
 
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.classList.add("btn", "btn-danger", "mt-2");
 
         cardBody.appendChild(cardTitle);
         cardBody.appendChild(cardText);
         card.appendChild(img);
+        cardBody.appendChild(deleteButton);
         card.appendChild(cardBody);
+
 
 
         container.appendChild(card);
