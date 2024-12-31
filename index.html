@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Management Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="dashboard">
+
+    <aside class="sidebar">
+        <h2>Book Management</h2>
+        <ul>
+            <li><a href="#DashBoard">Dashboard</a></li>
+            <li><a href="#Books">Book</a></li>
+            <li><a href="#">Setting</a></li>
+            <li><a href="#logout">Logout</a></li>
+        </ul>
+    </aside>
+
+
+    <div class="main-content">
+
+        <header class="header">
+            <h1>Book Management</h1>
+            <button class="logout-btn">Logout</button>
+        </header>
+
+
+        <section id="Books" class="form-section">
+            <h2>Add a New Book</h2>
+            <form class="book-form">
+                <div class="form-group">
+                    <label for="isbn">ISBN</label>
+                    <input type="text" id="isbn" name="isbn" placeholder="Enter ISBN" required>
+                </div>
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" placeholder="Enter Book Title" required>
+                </div>
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" id="author" name="author" placeholder="Enter Author Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" id="price" name="price" placeholder="Enter Book Price" required>
+                </div>
+                <div class="form-group">
+                    <label for="image">Book Image</label>
+                    <input type="file" id="image" name="image" accept="image/*" required>
+                </div>
+                <button type="submit" class="submit-btn" id="addBook">Add Book</button>
+            </form>
+        </section>
+
+
+        <section id="view-books" class="form-section-view">
+            <h2>View Books</h2>
+            <div id="cards-container">
+                <!-- Cards will dynamically load here -->
+            </div>
+
+        </section>
+
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
