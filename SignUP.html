@@ -2,37 +2,116 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SignUp</title>
+    <title>Title</title>
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
+
     <link rel="stylesheet" href="signIn_signUp.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+<div class="container">
+    <div class="forms-container">
+        <div class="signin-signup">
+            <form action="#" class="sign-in-form">
+                <h2 class="title">Sign in</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input id="signin-email" type="text" placeholder="Email" />
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input id="signin-password"  type="password" placeholder="Password" />
+                </div>
+                <input id="btn-signin" type="submit" value="Login" class="btn solid" />
+                <p class="social-text">Or Sign in with social platforms</p>
+                <div class="social-media">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-google"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </form>
 
-<div class="auth-container">
-    <form class="auth-form" id="signUpForm">
-        <h2>Sign Up</h2>
+            <form action="#" class="sign-up-form">
+                <h2 class="title">Sign up</h2>
+                <div class="input-field">
+                    <i class="fas fa-envelope"></i>
+                    <input id="signup-email" type="email" placeholder="Email" />
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input id="signup-password" type="password" placeholder="Password" />
+                </div>
 
-        <div class="input-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <select id="signup-role" class="role-box" required>
+                        <option value="">Select Role</option>
+                        <option value="LIBRARIAN">LIBRARIAN</option>
+                    </select>
+                </div>
+                <input id="btn-signup" type="submit" class="btn" value="Sign up" />
+                <p class="social-text">Or Sign up with social platforms</p>
+
+                <div class="social-media">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-google"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </form>
         </div>
-        <div class="input-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Create a password" required>
+    </div>
+
+    <div class="panels-container">
+        <div class="panel left-panel">
+            <div class="content">
+                <h3>New to our Factory ?</h3>
+                <p>
+                    Discover a world of possibilities! Join us and explore a vibrant
+                    community where ideas flourish and connections thrive.
+                </p>
+                <button class="btn transparent" id="sign-up-btn">
+                    Sign up
+                </button>
+            </div>
+            <img  src="https://i.ibb.co/6HXL6q1/Privacy-policy-rafiki.png" class="image" alt="" />
         </div>
-        <div class="input-group">
-            <label for="role">Role</label>
-            <select id="role" name="role" class="from-select" required>
-                <option value="LIBRARIAN">LIBRARIAN</option>
-                <option value="ADMINISTRATIVE">ADMINISTRATIVE</option>
-                <option value="ASSISTANT">ASSISTANT</option>
-                <option value="OTHER">OTHER</option>
-            </select>
+        <div class="panel right-panel">
+            <div class="content">
+                <h3>One of Our Valued Members</h3>
+                <p>
+                    Thank you for being part of our community. Your presence enriches our
+                    shared experiences. Let's continue this journey together!
+                </p>
+                <button class="btn transparent" id="sign-in-btn">
+                    Sign in
+                </button>
+            </div>
+            <img src="https://i.ibb.co/nP8H853/Mobile-login-rafiki.png"  class="image" alt="" />
         </div>
-        <button type="submit" class="btn">Sign Up</button>
-        <p>Already have an account? <a href="SignIn.html">Sign In</a></p>
-    </form>
+    </div>
 </div>
-<script src="UserController.js" type="module"></script>
+
+<script src="jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="auth.js"></script>
 </body>
 </html>
