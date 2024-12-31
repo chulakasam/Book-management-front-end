@@ -39,6 +39,10 @@ function generateCards(data) {
         cardTitle.textContent = book.title;
         cardTitle.style.fontWeight = "bold";
 
+        const cardISBN = document.createElement("h6");
+        cardISBN.textContent = book.isbn;
+        cardISBN.style.fontWeight = "bold";
+
         const cardText = document.createElement("p");
         cardText.classList.add("card-text");
         cardText.textContent = `Author: ${book.author}\nPrice: $${book.price}`;
@@ -49,18 +53,21 @@ function generateCards(data) {
 
         cardBody.appendChild(cardTitle);
         cardBody.appendChild(cardText);
+        cardBody.appendChild(cardISBN);
         card.appendChild(img);
         cardBody.appendChild(deleteButton);
         card.appendChild(cardBody);
 
-
+        deleteButton.addEventListener("click", function () {
+            deleteCard(book.isbn, card); // Calling the delete function
+        });
 
         container.appendChild(card);
     });
 }
 
+document.addEventListener("DOMContentLoaded",fetchBooks);
 
-fetchBooks();
 
 
 document.getElementById('addBook').addEventListener("click",function (){
@@ -104,7 +111,24 @@ document.getElementById('addBook').addEventListener("click",function (){
         });
     console.log(ISBN,title,author,image,price);
     console.log(formData)
-
-
-
 })
+
+
+
+
+function deleteCard(ISBN, cardElement) {
+    fetch(`http://localhost:5050/bookManagement/api/v1/book/${ISBN}`, {
+        method: "DELETE"
+    })
+        .then(response => {
+            if (response.ok) {
+                console.log(`Book with ID ${ISBN} deleted successfully`);
+                cardElement.remove();
+            } else {
+                console.error("Failed to delete the book");
+            }
+        })
+        .catch(error => {
+            console.error("Error deleting book:", error);
+        });
+}
