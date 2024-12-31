@@ -8,7 +8,7 @@ async function fetchBooks() {
     }
 }
 
-
+// -----------------------load all books ---------------------------------
 function generateCards(data) {
     const container = document.getElementById("cards-container");
     container.innerHTML = "";
@@ -51,15 +51,30 @@ function generateCards(data) {
         deleteButton.textContent = "Delete";
         deleteButton.classList.add("btn", "btn-danger", "mt-2");
 
+
+
+        const updateButton = document.createElement("search-button");
+        updateButton.textContent = "Search";
+        updateButton.classList.add("btn", "btn-primary", "mt-2");
+
+
+
+
+
         cardBody.appendChild(cardTitle);
         cardBody.appendChild(cardText);
         cardBody.appendChild(cardISBN);
         card.appendChild(img);
         cardBody.appendChild(deleteButton);
+        cardBody.appendChild(updateButton);
         card.appendChild(cardBody);
 
         deleteButton.addEventListener("click", function () {
             deleteCard(book.isbn, card); // Calling the delete function
+        });
+
+        updateButton.addEventListener("click", function () {
+            searchCard(book.isbn); // Calling the update function
         });
 
         container.appendChild(card);
@@ -69,6 +84,7 @@ function generateCards(data) {
 document.addEventListener("DOMContentLoaded",fetchBooks);
 
 
+// ------------------------ add book -------------------------------------------
 
 document.getElementById('addBook').addEventListener("click",function (){
     const ISBN=document.getElementById('isbn').value;
@@ -114,7 +130,7 @@ document.getElementById('addBook').addEventListener("click",function (){
 })
 
 
-
+// -------------------------delete book --------------------------
 
 function deleteCard(ISBN, cardElement) {
     fetch(`http://localhost:5050/bookManagement/api/v1/book/${ISBN}`, {
@@ -132,3 +148,45 @@ function deleteCard(ISBN, cardElement) {
             console.error("Error deleting book:", error);
         });
 }
+
+
+
+// ------------------------- search book -------------------------
+
+
+
+function searchCard(ISBN) {
+    fetch(`http://localhost:5050/bookManagement/api/v1/book/${ISBN}`, {
+        method: "GET"
+    })
+
+        .then(response => {
+            if (!response.ok) {
+                if (response.status === 404) {
+                    throw new Error("Book not found.");
+                }
+                throw new Error("Failed to fetch Book.");
+            }
+            return response.json();
+        })
+        .then(book => {
+
+
+            document.getElementById("isbn").value = book.isbn;
+            document.getElementById("title").value = book.title;
+            document.getElementById("author").value = book.author;
+            document.getElementById("image").files[0]= book.image;
+            document.getElementById("price").value = book.price;
+
+            console.log("book details loaded successfully.");
+
+        })
+        .catch(error => {
+            console.error("Error fetching field:", error);
+            alert(error.message);
+        });
+
+}
+
+
+
