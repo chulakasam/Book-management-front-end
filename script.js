@@ -53,9 +53,9 @@ function generateCards(data) {
 
 
 
-        const updateButton = document.createElement("search-button");
-        updateButton.textContent = "Search";
-        updateButton.classList.add("btn", "btn-primary", "mt-2");
+        const searchButton = document.createElement("search-button");
+        searchButton.textContent = "Search";
+        searchButton.classList.add("btn", "btn-primary", "mt-2");
 
 
 
@@ -66,14 +66,14 @@ function generateCards(data) {
         cardBody.appendChild(cardISBN);
         card.appendChild(img);
         cardBody.appendChild(deleteButton);
-        cardBody.appendChild(updateButton);
+        cardBody.appendChild(searchButton);
         card.appendChild(cardBody);
 
         deleteButton.addEventListener("click", function () {
             deleteCard(book.isbn, card); // Calling the delete function
         });
 
-        updateButton.addEventListener("click", function () {
+        searchButton.addEventListener("click", function () {
             searchCard(book.isbn); // Calling the update function
         });
 
@@ -189,4 +189,6 @@ function searchCard(ISBN) {
 }
 
 
+document.getElementById('updateBook').addEventListener('click',function (){
 
+})
